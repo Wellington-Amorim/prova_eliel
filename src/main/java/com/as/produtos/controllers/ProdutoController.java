@@ -33,18 +33,18 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtos);
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public Optional<ProdutoModel> buscarPorId(@PathVariable Long id){
         return produtoService.buscarPorId(id);
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public ProdutoModel atualizar(@PathVariable Long id, @RequestBody ProdutoModel produtoModel){
         ProdutoModel produto = produtoService.atualizar(id, produtoModel);
         return produto;
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable Long id){
         produtoService.deletar(id);
         return ResponseEntity.noContent().build();
